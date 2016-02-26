@@ -28,7 +28,7 @@ force-https: True
 # HTML Head #
 #############
 
-lang: "ch"
+lang: "zh"
 author: "Jx"
 title: "{ Jx }"
 description: "Blog and website of Jx, blogging mainly for tech. Opinions expressed are mine."
