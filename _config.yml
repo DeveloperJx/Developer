@@ -157,7 +157,7 @@ social:
 
 pages_list:
   关于: 'about'
-  Blog: 'latest-post'
+  Blogg: 'latest-post'
   Timeline: 'timeline'
   Contact: 'contact'
 
