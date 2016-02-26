@@ -3,7 +3,7 @@
 # Site wide configuration
 ####################################
 #
-title:       "Renyuan's blog"
+title:       "Jx's blog"
 description: 'A backend developer who loves design awesome things. Working for RendezvousCheznous atm in Marseille, France.'
 url:         # the base hostname & protocol for your site
 
@@ -31,12 +31,12 @@ kramdown:
 ####################################
 #
 owner:
-  name: Renyuan
+  name: Jx
   avatar: avatar.jpg
-  job: "PHP & Ruby Developer"
+  job: "iOS Developer"
   bio: "A backend developer who loves design awesome things. Working for RendezvousCheznous atm in Marseille, France."
-  email: zourenyuan@gmail.com
-  disqus-shortname: renyuanzblog
+  email: jiang-xun@qq.com
+  disqus-shortname: jxblog
   twitter: alittlered3 #username
   facebook: #username
   google:
@@ -46,7 +46,7 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: renyuanz #username
+  github: developerjx #username
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: #username
   xing: #username
