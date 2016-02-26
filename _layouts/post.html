@@ -1,49 +1,67 @@
+---
+layout: default
+---
 
-<!-- Post Layout Start -->
+<div class="back-home">
+  <a href="{{ site.url }}/">< back Home.</a>
+</div>
+{% if page.image.feature %}
+<div class="post-image-feature">
+  <img class="feature-image" src=
+  {% if post.image.feature contains 'http' %}
+  "{{ page.image.feature }}"
+  {% else %}
+  "{{ site.url }}/img/{{ page.image.feature }}"
+  {% endif %}
+  alt="{{ page.title }} feature image">
 
-<!DOCTYPE html>
-<html lang="{{ site.lang }}">
+  {% if page.image.credit %}
+  <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+  {% endif %}
+</div><!-- /.image-wrap -->
+{% endif %}
 
-  {% include head.html %}
 
-  <body>
+<div id="post">
+  <header class="post-header">
+    <h1 title="{{ page.title }}">{{ page.title }}</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        {{ page.date | date: "%-d %b %Y" | upcase }}
+      </span>
+      •
+      {% include read_time.html %}
+    </span>
 
-    {% include navigation.html %}
+  </header>
 
-    <section id="post" class="container content-section text-center">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+  <article class="post-content">
+    {{ content }}
+  </article>
+</div>
 
-          {% include swipe-instructions.html %}
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text={{ site.url }}{{ page.url }}" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u={{ site.url }}{{ page.url }}" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
 
-          <h1><strong>{{ page.title }}</strong></h1>
-          <h4><strong>{{ page.date | date_to_string }}</strong>
-            <small> . {{ page.category }} . <a href="{{site.baseurl}}{{page.url }}#disqus_thread">Comments</a>
-            {% for tag in page.tags %}
-              <a href="{{site.baseurl}}/tags/{{tag}}.html">#{{ tag }}</a>
-            {% endfor %}
-            </small>
-          </h4>
-
-          {{ page.content | markdownify }}
-
-          {% include share.html %}
-
-          {% if jekyll.environment == "production" %}
-            {% include comments.html %}
-          {% endif %}
-
-          {% include social-buttons.html %}
-
-        </div>
-      </div>
-    </section>
-
-    {% include footer.html %}
-
-    {% include js.html %}
-
-  </body>
-</html>
-
-<!-- Post Layout End -->
+{% if site.owner.disqus-shortname and page.comments == true %}
+<div id="disqus_thread"></div>
+{% include disqus.html %}
+{% endif %}
