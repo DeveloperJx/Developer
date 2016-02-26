@@ -157,9 +157,9 @@ social:
 
 pages_list:
   关于: 'about'
-  Blogg: 'latest-post'
-  Timeline: 'timeline'
-  Contact: 'contact'
+  博客: 'latest-post'
+  生涯: 'timeline'
+  联系方式: 'contact'
 
 # Exclusion list from the generated _site
 
