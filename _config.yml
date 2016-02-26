@@ -156,10 +156,10 @@ social:
 # Sections shown in the index page
 
 pages_list:
-  关于: 'about'
-  博客: 'latest-post'
-  生涯: 'timeline'
-  联系方式: 'contact'
+  关于(About): 'about'
+  博客(Blog): 'latest-post'
+  生涯(Timeline): 'timeline'
+  联系方式(Contact): 'contact'
 
 # Exclusion list from the generated _site
 
