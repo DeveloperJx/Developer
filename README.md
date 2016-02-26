@@ -2,6 +2,8 @@
 
 **[Leonids](http://renyuanz.github.io/leonids)** is a clean Jekyll theme perfect for powering your GitHub hosted blog.
 
+Are you looking for [more themes](https://github.com/renyuanz/leonids/releases)?
+
 ## What is Leonids?
 
 * Responsive templates. Looking good on mobile, tablet, and desktop.
@@ -14,7 +16,7 @@ See a [demo](http://renyuanz.github.io/leonids/) hosted on GitHub.
 
 ## Quick setup
 
-`git clone https://github.com/renyunz/leonids`
+`git clone https://github.com/renyuanz/leonids`
 
 `cd leonids`
 

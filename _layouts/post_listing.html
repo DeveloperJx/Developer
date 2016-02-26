@@ -1,30 +1,17 @@
 ---
-layout: default
+layout: two-col
 ---
 
 {% for post in site.posts %}
 <section class="post">
   <header class="post-header">
-    <p class="post-meta">
-      <span class="post-date">
-        {{ post.date | date: "%-d %b %Y" | upcase }}
-      </span>
-      {% if post.categories.size > 0 %}
-      •
-      {% for cat in post.categories %}
-        <a class="post-cat" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
-        {% unless forloop.last %}
-        <span>/</span>
-        {% endunless %}
-      {% endfor %}
-      {% endif %}
-    </p>
-    <h4>
-      <a href="{{ site.url }}{{ post.url }}" class="post-title" title="{{ post.title }}">{{ post.title }}</a>
+
+    <h2>
+      <a class="post-title" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       {% if post.link %}
       <a class="post-title-link" href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-external-link"></i></a>
       {% endif %}
-    </h4>
+    </h2>
 
     {% if post.author %}
       {% assign author = site.data.authors[post.author] %}
@@ -32,7 +19,26 @@ layout: default
       {% assign author = site.owner %}
     {% endif %}
 
-    </header>
+    <p class="post-meta">
+      <span class="post-date">
+        {{ post.date | date: "%-d %b %Y" | upcase }}
+      </span>
+      {% if post.categories.size > 0 %}
+      •
+      {% for cat in post.categories %}
+      <a class="post-cat" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
+      {% endfor %}
+      {% endif %}
+    </p>
+
+  </header>
+
+    {% if post.video %}
+    {% assign video_embed = post.video | remove:'https://www.youtube.com/watch?v=' %}
+    <article>
+      <iframe width="940" height="529" src="//www.youtube.com/embed/{{ video_embed }}?theme=light&amp;color=white" frameborder="0" allowfullscreen> </iframe>
+    </article>
+    {% endif %}
 
     {% if post.excerpt %}
     <div class="post-description">
@@ -43,7 +49,7 @@ layout: default
     {% endif %}
 
     {% if post.image.feature %}
-    <div class="post-image-feature">
+    <div class="post-feature-image">
       <img src=
       {% if post.image.feature contains 'http' %}
       "{{ post.image.feature }}"

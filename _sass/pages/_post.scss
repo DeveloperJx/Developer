@@ -8,9 +8,6 @@
   padding: 20px 20px 0;
   -webkit-transform: translate3d(0,0,1px);
   transform: translate3d(0,0,1px);
-  @include media-query($small-screen) {
-    padding: 50px 30px 0;
-  }
   @include media-query($medium-screen) {
     height: 100vh;
     overflow-y: scroll;
@@ -31,14 +28,6 @@
 // Post Section
 section.post {
 	margin-bottom: 80px;
-}
-
-// Back home button
-
-.back-home a {
-  color: $info;
-  text-decoration: underline;
-  font-family: $font-family-monospace;
 }
 
 // Post title
@@ -63,11 +52,7 @@ section.post {
 	.post-date {
 		color: $secondary;
 	}
-	.post-author {
-		text-transform: uppercase;
-		color: $warning;
-	}
-  .post-cat {
+	.post-cat {
 		text-transform: uppercase;
 		color: $warning;
 	}
@@ -76,39 +61,19 @@ section.post {
   }
 }
 
-// Read more buttons
-
-a.read-more {
-  padding: 5px 8px;
-}
-
 // Post content
 
 #post {
   padding-bottom: 50px;
   .post-header {
-    margin: 0 auto 50px;
+    margin: 50px auto;
   }
-}
-
-#post h1 {
-  margin: 0.5em 0 1em;
-}
-#post h2 {
-  margin: 2em 0 0.8em;
-  padding-bottom: 0.7em;
-  border-bottom: 1px solid #ddd;
-}
-#post h3 {
-  margin: 1.75em 0 1.2em;
-  position: relative;
 }
 
 #page {
   padding-bottom: 50px;
-  min-height: 70vh;
   .page-header {
-    margin: 0 auto 50px;
+    margin: 50px auto;
   }
 }
 
@@ -120,7 +85,7 @@ a.read-more {
   margin: 0 auto;
   padding: 20px 30px;
   text-align: center;
-  color: $warning;
+  color: $success;
   font-size: 16px;
   line-height: 16px;
 }
@@ -145,9 +110,16 @@ a.read-more {
   }
 }
 .post-image-feature {
-  margin-bottom: 40px;
   .feature-image {
     width: 100%;
+    max-height: 500px;
+  }
+}
+.page-image-feature {
+  .feature-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     max-height: 500px;
   }
 }

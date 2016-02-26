@@ -1,13 +1,11 @@
-/* Buttons
-   ========================================================================== */
-
-// General
+// Buttons --------------------
+// General --------------------
 .btn {
   display: inline-block;
   margin-bottom: 20px;
   padding: 8px 20px;
   font-size: 0.875em;
-  font-family: $font-family-base;
+  font-family: $base-font-family;
   font-weight: 700;
   background-color: $primary;
   color: $white;
@@ -16,6 +14,7 @@
   border-color: $primary;
   text-decoration: none !important;
   border-radius: 5px;
+  @include box-shadow;
   &:visited {
     color: $white;
     border-color: $primary;
@@ -27,7 +26,7 @@
   }
 }
 
-// Success button
+// Success button --------------------
 .btn-success {
   background-color: $success;
   color: $white;
@@ -43,7 +42,7 @@
   }
 }
 
-// Warning button
+// Warning button --------------------
 .btn-warning {
   background-color: $warning;
   color: $white;
@@ -59,7 +58,7 @@
   }
 }
 
-// Danger button
+// Danger button --------------------
 .btn-danger {
   background-color: $danger;
   color: $white;
@@ -75,7 +74,7 @@
   }
 }
 
-// Information button
+// Information button --------------------
 .btn-info {
   background-color: $info;
   color: $white;
