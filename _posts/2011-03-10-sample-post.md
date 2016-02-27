@@ -4,6 +4,7 @@ title: Sample Post
 excerpt: "Just about everything you'll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more."
 tags: [intro, beginner, jekyll, tutorial]
 comments: true
+categories: html
 image:
   feature: sample-image-2.jpg
   creditlink: https://unsplash.com/photos/Ki0dpxd3LGc
