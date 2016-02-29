@@ -17,7 +17,7 @@ lang: zh-CN
 markdown:           kramdown
 highlighter:        rouge
 excerpt_separator:  <!--more-->
-timezone:           Europe/Paris
+timezone:          Asia/Taipei
 
 kramdown:
   auto_ids: true
