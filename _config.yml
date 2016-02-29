@@ -3,9 +3,9 @@
 # Site wide configuration
 ####################################
 #
-title: Jx
+title: Jason
 email: jiang-xun@qq.com
-description: Jx's blog.
+description: Jason's blog.
 url: https://developerjx.github.io # the base hostname & protocol for your site
 lang: zh-CN
 
@@ -32,13 +32,13 @@ kramdown:
 ####################################
 #
 owner:
-  name: Jx
+  name: Jason
   avatar: logo.png
   job: "iOS Developer"
   bio_chinese: "一个追求性能与高质量用户体验的中国iOS开发攻城狮"
   bio: "A high-quality performance and user experience of suitor,China."
   email: jiang-xun@qq.com
-  disqus-shortname: jxblog
+  disqus-shortname: jasonblog
   twitter: #username
   facebook: #username
   google:
