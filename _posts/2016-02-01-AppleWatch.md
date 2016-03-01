@@ -30,5 +30,5 @@ author: Jx
 
 手表版本为2.0以上的均可尝试上述方法，在2.0以下的请下载下面链接中的dmg进行尝试
 
-* http://stackoverflow.com/questions/31051908/xcode-7-0-beta-ios9-watchos-2-no-symbols-for-paired-apple-watch
+* [http://stackoverflow.com/questions/31051908/xcode-7-0-beta-ios9-watchos-2-no-symbols-for-paired-apple-watch](http://stackoverflow.com/questions/31051908/xcode-7-0-beta-ios9-watchos-2-no-symbols-for-paired-apple-watch "title")
 
