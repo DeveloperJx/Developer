@@ -162,7 +162,8 @@ func checkLogin(username: String, password: String ) -> Bool {
 ```
 其中关键的代码是    
 `myKeychainItemWrapper.objectForKey(kSecValueData)`    
-该句完成了Keychain的读取操作        
+该句完成了Keychain的读取操作    
+    
 11.现在进行编译你会发现工程报错，原因是KeychainItemWrapper是基于MRC模式管理内存的，而工程为ARC，因此需要在工程配置中填入Compliter Flags如下图所示：![Alt text](/img/keychian/compliter_flags.png "Optional title")    
 到此App已经可以在模拟器上正常运行了，Keychain功能也是正常的，真机调试还需多做以下几步操作（原文中未提及该部分）：
 
