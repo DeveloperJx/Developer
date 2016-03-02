@@ -71,9 +71,9 @@ error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as Dicti
 6.在LoginViewController.swift第34行加入以下代码块
 
 ```
-	@IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
 
-	let myKeychainItemWrapper = KeychainItemWrapper(identifier: "Account_Number", accessGroup: nil)
+    let myKeychainItemWrapper = KeychainItemWrapper(identifier: "Account_Number", accessGroup: nil)
     let createLoginButtonTag = 0
     let loginButtonTag = 1
 ```
