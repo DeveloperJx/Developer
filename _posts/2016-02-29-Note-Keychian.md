@@ -63,11 +63,13 @@ error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as Dicti
     
 4.解决上述表中的问题后，工程编译通过，请[在此下载](https://developer.apple.com/library/ios/samplecode/GenericKeychain/GenericKeychain.zip "title")来自于Apple的GenericKeychain，官方编程指导可见[Keychain Services Programming Guide](https://developer.apple.com/library/ios/documentation/Security/Conceptual/keychainServConcepts/01introduction/introduction.html "title")解压并将GenericKeychain中的KeychainItemWrapper.h 与 KeychainItemWrapper.m拖入我们的工程中，当Xcode提示是否建立桥头文件时，如下图所示：![Alt text](/img/keychian/bridge_header_alert.png "Optional title")     
 点击Yes来建立头文件连接Objective-C与Swift。（原文在此用的是KeychainWrapper.h 和 KeychainWrapper.m，文件不同，实现也不同，需要注意。）    
-5.打开TouchMeIn-Bridging-Header.h文件，在文件开头导入Keychain 封装包：    
+5.打开TouchMeIn-Bridging-Header.h文件，在文件开头导入Keychain 封装包：
+
 ```
 #import "KeychainItemWrapper.h"
 ```   
 6.在LoginViewController.swift第34行加入以下代码块
+
 ```
 	@IBOutlet weak var loginButton: UIButton!
 
@@ -97,7 +99,6 @@ if hasLogin {
 // 3.
 usernameTextField.text = NSUserDefaults.standardUserDefaults().valueForKey("username") as? String
 ```
-
 以上代码主要完成在NSUserDefaults中存取用户名及随是否登陆过应用改变登录按钮文字状态的功能。    
 9.将LoginViewController.swift的loginAction方法的实现改为如下代码：
 
@@ -143,7 +144,6 @@ if (usernameTextField.text == "" || passwordTextField.text == "") {
     }
 }
 ```
-    
 其中关键的代码是    
 `myKeychainItemWrapper.setObject(passwordTextField.text, forKey: kSecValueData)`    
 该句完成了Keychain的存储操作
