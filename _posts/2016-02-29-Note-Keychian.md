@@ -60,12 +60,14 @@ error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as Dicti
 | 186 行  | Xcode没有检测到变量被调用  | 可忽略 |
 | 215 行  | 方法名重复 | 给方法换名字 |
 | 226 行  | 枚举被完全遍历 | 删除default |
-|=======
     
-4.解决上述表中的问题后，工程编译通过，请[在此下载](https://developer.apple.com/library/ios/samplecode/GenericKeychain/GenericKeychain.zip "title")来自于Apple的GenericKeychain，官方编程指导可见[Keychain Services Programming Guide](https://developer.apple.com/library/ios/documentation/Security/Conceptual/keychainServConcepts/01introduction/introduction.html "title")解压并将GenericKeychain中的KeychainItemWrapper.h 与 KeychainItemWrapper.m拖入我们的工程中，当Xcode提示是否建立桥头文件时，如下图所示：![Alt text](/img/keychian/bridge_header_alert.png "Optional title")    点击Yes来建立头文件连接Objective-C与Swift。（原文在此用的是KeychainWrapper.h 和 KeychainWrapper.m，文件不同，实现也不同，需要注意。）    
-5.打开TouchMeIn-Bridging-Header.h文件，在文件开头导入Keychain 封装包：    `#import "KeychainItemWrapper.h"`    
+4.解决上述表中的问题后，工程编译通过，请[在此下载](https://developer.apple.com/library/ios/samplecode/GenericKeychain/GenericKeychain.zip "title")来自于Apple的GenericKeychain，官方编程指导可见[Keychain Services Programming Guide](https://developer.apple.com/library/ios/documentation/Security/Conceptual/keychainServConcepts/01introduction/introduction.html "title")解压并将GenericKeychain中的KeychainItemWrapper.h 与 KeychainItemWrapper.m拖入我们的工程中，当Xcode提示是否建立桥头文件时，如下图所示：![Alt text](/img/keychian/bridge_header_alert.png "Optional title")    
+点击Yes来建立头文件连接Objective-C与Swift。（原文在此用的是KeychainWrapper.h 和 KeychainWrapper.m，文件不同，实现也不同，需要注意。）    
+5.打开TouchMeIn-Bridging-Header.h文件，在文件开头导入Keychain 封装包：    
+```
+#import "KeychainItemWrapper.h"
+```   
 6.在LoginViewController.swift第34行加入以下代码块
-
 ```
 	@IBOutlet weak var loginButton: UIButton!
 
