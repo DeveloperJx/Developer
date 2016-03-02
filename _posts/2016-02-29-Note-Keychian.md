@@ -26,7 +26,8 @@ tags: [Swift 2.2, Keychain, 数据安全, iOS安全]
 1.请[在此下载](https://github.com/DeveloperJx/developerjx.github.io/raw/master/_data/TouchMeInRev.starter.zip "title")该实现步骤中所要用到的原始工程文件。   
 2.解压后打开工程，由于Swift 2.2与之前版本写法有所改变，xcode提示转换一些代码满足以Swift 2.2，你将看到如下提示：![Alt text](/img/keychian/convert_alert.png "Optional title")    
 点击红框中的covert按钮，然后一路next直到出现代码对比框如下图所示：![Alt text](/img/keychian/convert_finish.png "Optional title")    这里可以看到Xcode自动帮我们转换了一些Swift的语法，最后点击红框的save就可以了。    
-3.编译一下发现编译无法通过，可见以下图中的问题![Alt text](/img/keychian/warning_error.png "Optional title")    
+3.编译一下发现编译无法通过，可见以下图中的问题    
+![Alt text](/img/keychian/warning_error.png "Optional title")    
 工程中的警告和错误主要是如下的部分：
 第一项警告是工程设置警告，可忽略。
 
