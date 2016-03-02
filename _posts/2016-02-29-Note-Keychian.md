@@ -24,9 +24,9 @@ tags: [Swift 2.2, Keychain, 数据安全, iOS安全]
 #### 实现步骤:
 
 1.请[在此下载](https://github.com/DeveloperJx/developerjx.github.io/raw/master/_data/TouchMeInRev.starter.zip "title")该实现步骤中所要用到的原始工程文件。   
-2.解压后打开工程，由于Swift 2.2与之前版本写法有所改变，xcode提示转换一些代码满足以Swift 2.2，你将看到如下提示：![Alt text](/img/keychian/convert_alert.png "Optional title")</br>
-点击红框中的covert按钮，然后一路next直到出现代码对比框如下图所示：![Alt text](/img/keychian/convert_finish.png "Optional title")</br>这里可以看到Xcode自动帮我们转换了一些Swift的语法，最后点击红框的save就可以了。</br>
-3.编译一下发现编译无法通过，可见以下图中的问题![Alt text](/img/keychian/warning_error.png "Optional title")</br>
+2.解压后打开工程，由于Swift 2.2与之前版本写法有所改变，xcode提示转换一些代码满足以Swift 2.2，你将看到如下提示：![Alt text](/img/keychian/convert_alert.png "Optional title")    
+点击红框中的covert按钮，然后一路next直到出现代码对比框如下图所示：![Alt text](/img/keychian/convert_finish.png "Optional title")</br>这里可以看到Xcode自动帮我们转换了一些Swift的语法，最后点击红框的save就可以了。    
+3.编译一下发现编译无法通过，可见以下图中的问题![Alt text](/img/keychian/warning_error.png "Optional title")    
 工程中的警告和错误主要是如下的部分：
 第一项警告是工程设置警告，可忽略。
 
@@ -59,9 +59,9 @@ error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as Dicti
 | 186 行  | Xcode没有检测到变量被调用  | 可忽略 |
 | 215 行  | 方法名重复 | 给方法换名字 |
 | 226 行  | 枚举被完全遍历 | 删除default |
-</br>
-4.解决上述表中的问题后，工程编译通过，请[在此下载](https://developer.apple.com/library/ios/samplecode/GenericKeychain/GenericKeychain.zip "title")来自于Apple的GenericKeychain，官方编程指导可见[Keychain Services Programming Guide](https://developer.apple.com/library/ios/documentation/Security/Conceptual/keychainServConcepts/01introduction/introduction.html "title")解压并将GenericKeychain中的KeychainItemWrapper.h 与 KeychainItemWrapper.m拖入我们的工程中，当Xcode提示是否建立桥头文件时，如下图所示：![Alt text](/img/keychian/bridge_header_alert.png "Optional title")</br>点击Yes来建立头文件连接Objective-C与Swift。（原文在此用的是KeychainWrapper.h 和 KeychainWrapper.m，文件不同，实现也不同，需要注意。）</br>
-5.打开TouchMeIn-Bridging-Header.h文件，在文件开头导入Keychain 封装包：</br>`#import "KeychainItemWrapper.h"`</br>
+    
+4.解决上述表中的问题后，工程编译通过，请[在此下载](https://developer.apple.com/library/ios/samplecode/GenericKeychain/GenericKeychain.zip "title")来自于Apple的GenericKeychain，官方编程指导可见[Keychain Services Programming Guide](https://developer.apple.com/library/ios/documentation/Security/Conceptual/keychainServConcepts/01introduction/introduction.html "title")解压并将GenericKeychain中的KeychainItemWrapper.h 与 KeychainItemWrapper.m拖入我们的工程中，当Xcode提示是否建立桥头文件时，如下图所示：![Alt text](/img/keychian/bridge_header_alert.png "Optional title")</br>点击Yes来建立头文件连接Objective-C与Swift。（原文在此用的是KeychainWrapper.h 和 KeychainWrapper.m，文件不同，实现也不同，需要注意。）    
+5.打开TouchMeIn-Bridging-Header.h文件，在文件开头导入Keychain 封装包：</br>`#import "KeychainItemWrapper.h"`    
 6.在LoginViewController.swift第34行加入以下代码块
 
 ```
@@ -71,8 +71,8 @@ error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as Dicti
     let createLoginButtonTag = 0
     let loginButtonTag = 1
 ```
-其中myKeychainItemWrapper为Keychain的管理对象，loginButton及下方两个tag用于实现button形态的转变。这里accessGroup填nil是因为使用特殊group无法获得权限（正在查找原因，后期将更新原因）
-</br>
+其中myKeychainItemWrapper为Keychain的管理对象，loginButton及下方两个tag用于实现button形态的转变。这里accessGroup填nil是因为使用特殊group无法获得权限（正在查找原因，后期将更新原因）    
+    
 7.打开Main.storyboard建立loginButton的连接关系，如下图所示：![Alt text](/img/keychian/storyboard_function.png "Optional title")</br>
 8.在LoginViewController.swift的viewDidLoad方法中添加如下过程代码：
 
@@ -93,7 +93,7 @@ if hasLogin {
 usernameTextField.text = NSUserDefaults.standardUserDefaults().valueForKey("username") as? String
 ```
 
-以上代码主要完成在NSUserDefaults中存取用户名及随是否登陆过应用改变登录按钮文字状态的功能。</br>
+以上代码主要完成在NSUserDefaults中存取用户名及随是否登陆过应用改变登录按钮文字状态的功能。    
 9.将LoginViewController.swift的loginAction方法的实现改为如下代码：
 
 ```
@@ -138,10 +138,10 @@ if (usernameTextField.text == "" || passwordTextField.text == "") {
     }
 }
 ```
-</br>
-其中关键的代码是</br>
+    
+其中关键的代码是    
 `myKeychainItemWrapper.setObject(passwordTextField.text, forKey: kSecValueData)`
-</br>
+    
 该句完成了Keychain的存储操作
 
 10.在LoginViewController.swift的loginAction方法的实现下方加入checkLogin方法检查密码正确性：
@@ -156,15 +156,15 @@ func checkLogin(username: String, password: String ) -> Bool {
         }
     }
 ```
-其中关键的代码是</br>
+其中关键的代码是    
 `myKeychainItemWrapper.objectForKey(kSecValueData)`
-</br>
-该句完成了Keychain的读取操作</br>
-11.现在进行编译你会发现工程报错，原因是KeychainItemWrapper是基于MRC模式管理内存的，而工程为ARC，因此需要在工程配置中填入Compliter Flags如下图所示：![Alt text](/img/keychian/compliter_flags.png "Optional title")</br>
+    
+该句完成了Keychain的读取操作    
+11.现在进行编译你会发现工程报错，原因是KeychainItemWrapper是基于MRC模式管理内存的，而工程为ARC，因此需要在工程配置中填入Compliter Flags如下图所示：![Alt text](/img/keychian/compliter_flags.png "Optional title")    
 到此App已经可以在模拟器上正常运行了，Keychain功能也是正常的，真机调试还需多做以下几步操作（原文中未提及该部分）：
 
 * 打开工程配置中的Capabilites设置，申请keychain功能权限，如下图所示：
-![Alt text](/img/keychian/capabilities_setting.png "Optional title")</br>
+![Alt text](/img/keychian/capabilities_setting.png "Optional title")    
 如果你遇到下图所示情形，说明你的证书及Bundle Identifier设置依然存在问题，请继续完成后面的步骤
 ![Alt text](/img/keychian/capabilities_setting_error.png "Optional title")
 * 打开工程配置中的General设置，更改Bundle Identifier至唯一，并在Team中选择自己的开发证书中的团队，点击Fix Issue让Xcode自动修复问题即可，具体如下图所示：
