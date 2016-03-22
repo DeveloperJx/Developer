@@ -30,6 +30,6 @@ func time(time:UInt64) -> Double {
 这里稍微解释一下，mach_absolute_time()是一个CPU/总线依赖函数，返回一个基于系统启动后的时钟“嘀嗒”数。mach_timebase_info_data_t是一个描述CPU时间基准的结构体，内部包含一个number（分子），一个denom（分母），通过mach_timebase_info函数获得时间基准后将用于后面的将“嘀嗒”数转成时间的过程。在进行Double(time) * Double(timebase.numer) / Double(timebase.denom)运算后“嘀嗒”数被转换成了纳秒，再除10的9次方就是秒了。   
 # 参考文献   
 
-* [http://iosdeveloperzone.com/2011/05/03/quick-performance-measurements](http://iosdeveloperzone.com/2011/05/03/quick-performance-measurements "") 
+* [http://iosdeveloperzone.com/2011/05/03/quick-performance-measurements](http://iosdeveloperzone.com/2011/05/03/quick-performance-measurements "title")
 
-* [http://www.cocoachina.com/industry/20130608/6362.html](http://www.cocoachina.com/industry/20130608/6362.html "")
+* [http://www.cocoachina.com/industry/20130608/6362.html](http://www.cocoachina.com/industry/20130608/6362.html "title")
